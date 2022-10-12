@@ -42,4 +42,4 @@ def ver_usuarios(request):
 
 
 def home(request):
-    return render(request, 'home/index.html', {})
+    return render(request, 'base/index.html', {})
