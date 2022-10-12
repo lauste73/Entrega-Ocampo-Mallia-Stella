@@ -7,3 +7,5 @@ PASOS:
 6_Inicializo el entorno con ". start.sh"
 7_Instalo los requerimientos con "pip install -r requirements.txt"
 8_Corro el programa con "py manage.py runserver"
+9_Ingreso a la página y clickeo en la opción "Crear Usuario" que está en el nav
+10_Ingreso mis datos(la fecha es opcional) y hago click en "Enviar"
