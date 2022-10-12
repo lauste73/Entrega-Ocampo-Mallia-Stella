@@ -40,9 +40,13 @@ def ver_usuarios(request):
     
     return render(request, 'home/ver_usuarios.html', {'usuarios': usuarios, 'formulario': formulario})
 
+def chat(request):
+    return render(request, 'home/chat.html', {})
+
 
 def home(request):
     return render(request, 'home/home.html', {})
 
 def sobre_nosotros(request):
     return render(request, 'home/sobre_nosotros.html', {} )
+
