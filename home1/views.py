@@ -39,3 +39,7 @@ def ver_usuarios(request):
     formulario = BusquedaUsuario()
     
     return render(request, 'home/ver_usuarios.html', {'usuarios': usuarios, 'formulario': formulario})
+
+
+def home(request):
+    return render(request, 'home/index.html', {})
