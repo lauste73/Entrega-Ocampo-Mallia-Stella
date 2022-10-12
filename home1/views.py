@@ -43,3 +43,6 @@ def ver_usuarios(request):
 
 def home(request):
     return render(request, 'home/home.html', {})
+
+def sobre_nosotros(request):
+    return render(request, 'home/sobre_nosotros.html', {} )
