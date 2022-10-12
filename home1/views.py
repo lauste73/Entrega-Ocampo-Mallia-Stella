@@ -32,7 +32,7 @@ def ver_usuarios(request):
     nombre = request.GET.get('nombre', None)
     
     if nombre:
-        usuario = Usuario.objects.filter(nombre__icontains=nombre)
+        usuarios = Usuario.objects.filter(nombre__icontains=nombre)
     else:
         usuarios = Usuario.objects.all()
     
@@ -42,4 +42,4 @@ def ver_usuarios(request):
 
 
 def home(request):
-    return render(request, 'base/index.html', {})
+    return render(request, 'home/home.html', {})
