@@ -5,9 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block title_pagina %}<title>Ver usuarios</title>{% endblock title_pagina %}
+    {% block title_pagina %}
+        <title>Ver usuario</title>
+    {% endblock title_pagina %}
 </head>
 <body>
+    {% block mi_contenido %}
+    {% load static %}
+    <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+        <div class="mr-auto place-self-center lg:col-span-7">
+            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">Buscador de usuarios:</h1>
+        </div>         
+    </div>
+    <form action={% url 'ver_usuarios' %} method="GET">
+        {{formulario}}
+        <button>Buscar</button>
+    </form>
+    <p>
+        {% if usuarios %}
+            {% for usuario in  usuarios %}
+                <li>{{usuario.nombre}}  {{usuario.apellido}}  {{usuario.edad}} {{usuario.fecha_creacion}}</li> 
+            {% endfor %}
     
+        {% else %}
+            <p>
+                No se encontraron resultados
+            </p>
+        {% endif %}
+    </p>
+    {% endblock mi_contenido %}
 </body>
 </html>
