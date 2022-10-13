@@ -9,3 +9,5 @@ PASOS:
 8_Corro el programa con "py manage.py runserver"
 9_Ingreso a la página y clickeo en la opción "Crear Usuario" que está en el nav
 10_Ingreso mis datos(la fecha es opcional) y hago click en "Enviar"
+11_Me redirecciona a la lista de Usuarios creados, donde si quiero buscar uno en especifico por su nombre, simplemente escribo, clickeo en buscar. 
+12_Si el nombre se encuentra aparece, y si no da un mensaje de que no se encuentra.
