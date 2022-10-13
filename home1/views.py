@@ -15,7 +15,7 @@ def crear_usuario(request):
             nombre = data['nombre']
             apellido = data['apellido']
             edad = data['edad']
-            fecha_creacion = data.get('fecha_creacion', datetime.now())
+            fecha_creacion = data['fecha_creacion'] or datetime.now()
             
             usuario = Usuario(nombre=nombre, apellido=apellido, edad=edad, fecha_creacion=fecha_creacion)
             usuario.save()

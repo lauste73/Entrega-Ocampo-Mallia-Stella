@@ -9,3 +9,10 @@ class Usuario(models.Model):
     
     def __str__(self):
         return f'{self.nombre} {self.apellido} {self.edad} {self.fecha_creacion}'
+    
+class Chat(models.Model):
+    mensaje=models.CharField(max_length=150)
+    
+    def _str_(self):
+        return f'{self.mensaje}'
+    
