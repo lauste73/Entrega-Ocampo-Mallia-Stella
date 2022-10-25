@@ -1,0 +1,31 @@
+{% extends 'base/index.html' %}
+
+{% block title_pagina %}
+<title>Ver Motos</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+<a class="navbar-brand" href={% url 'crear_moto' %}>Crear Moto</a>
+<p>Listado de Motos:</p>
+
+<form action={% url 'ver_motos' %} method="GET">
+    {{formulario}}
+    <button>Buscar</button>
+</form>
+<p>
+    {% if object_list %}
+
+        {% for moto in object_list %}
+            <li>
+                <a href={% url 'descripcion_moto' moto.id %}>{{moto}}</a>
+                <a href={% url 'editar_moto' moto.id %}>Editar</a>
+                <a href={% url 'eliminar_moto' moto.id %}>Eliminar</a>
+            </li>
+        {% endfor %}
+
+    {% else %}
+        <p>No hubo resultados.</p>
+    {% endif %}
+
+</p>
+{% endblock mi_contenido %}

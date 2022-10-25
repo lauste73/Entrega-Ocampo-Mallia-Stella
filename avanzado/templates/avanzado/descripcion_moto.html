@@ -1,0 +1,16 @@
+{% extends 'base/index.html' %}
+
+{% block title_pagina %}
+<title>{{moto.chasis}}</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+<p>
+    <li>Modelo: {{moto.modelo}}</li>
+    <li>Marca: {{moto.marca}}</li>
+    <li>Color: {{moto.color}}</li>
+    <li>Chasis: {{moto.chasis}}</li>
+    <li>Estado: {{moto.estado}}</li>
+    <li>Numero de contacto: {{moto.contacto}}</li>
+</p>
+{% endblock mi_contenido %}

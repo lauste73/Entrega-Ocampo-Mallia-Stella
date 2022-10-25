@@ -1,0 +1,16 @@
+{% extends 'base/index.html' %}
+
+{% block title_pagina %}
+<title>Eliminar Moto</title>
+{% endblock title_pagina %}
+
+
+{% block mi_contenido %}
+<form action={% url 'eliminar_moto' moto.id %} method="POST">
+    {% csrf_token %}
+    <p>
+        Confirma el borrado de {{moto}}?
+    </p>
+    <button>Confirmar</button>
+</form>
+{% endblock mi_contenido %}
