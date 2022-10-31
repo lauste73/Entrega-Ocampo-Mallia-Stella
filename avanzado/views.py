@@ -44,4 +44,4 @@ class EliminarMoto(LoginRequiredMixin, DeleteView):
     
 class DescMoto(DetailView):
     model = Moto
-    template_name = 'avanzado/desc_moto.html'
+    template_name = 'avanzado/descripcion_moto.html'
