@@ -17,6 +17,11 @@
         <a class="max-w-2xl mb-4 text-2xl " href={% url 'ver_motos' %}>Regresar a la Tienda</a>
     </div>         
 </div>
+<p>
+    {% if request.user.extensionusuario.avatar %}
+        <img src={{request.user.extensionusuario.avatar.url}} alt="">
+    {% endif %}
+</p>
 
 <p>
     <li>Modelo: {{moto.modelo}}</li>

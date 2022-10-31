@@ -24,7 +24,7 @@
 <form action={% url 'ver_motos' %} method="GET">
     <div class="grid max-w-screen-xl px-4 pt-10 pb-8 lg:pt-18">
     <h1>
-        {{formulario}}
+        Buscar por {{formulario}}
         <button>Buscar</button>
     </h1>
     </div>  
@@ -32,6 +32,11 @@
 <p>
     {% if object_list %}
         {% for moto in object_list %}
+            <p>
+                {% if request.user.extensionusuario.avatar %}
+                    <img src={{request.user.extensionusuario.avatar.url}} alt="">
+                {% endif %}
+           </p>
             <li>
                 <a href={% url 'descripcion_moto' moto.id %}>{{moto}}</a>
                 <p></p>

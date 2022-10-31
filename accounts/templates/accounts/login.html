@@ -7,19 +7,19 @@
 
 {% block mi_contenido %}
 
-<div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
-    <div class="mr-auto place-self-center lg:col-span-7">
-        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">Login:</h1>
+<div class="grid max-w-screen-xl  lg:grid-cols-12 lg:pt-28">
+    <div class="mr-auto lg:col-span-7">
+        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">Ingreso:</h1>
     </div>         
 </div>
 
 <form action={% url 'login' %} method="POST">
     {% csrf_token %}
-    <center>
+    <table>
         <table>
             {{formulario}}
         </table>
         <button>Iniciar sesion</button>
-    </center>
+    </table>
 </form>
 {% endblock mi_contenido %}

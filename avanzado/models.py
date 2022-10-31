@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 
@@ -10,6 +11,14 @@ class Moto(models.Model):
     estado = models.CharField(max_length=20)
     contacto = models.IntegerField()
     
+    
     def __str__(self):
-        return f'Modelo: {self.modelo} - Marca: {self.marca} - Chasis: {self.chasis}'
+        return f'Modelo: {self.modelo} - Marca: {self.marca} - Estado: {self.estado}'
+    
+    
+    
+
+class ExtensionMoto(models.Model):
+    avatar = models.ImageField(upload_to='avatares',null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 

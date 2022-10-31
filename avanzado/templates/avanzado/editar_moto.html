@@ -7,7 +7,7 @@
 
 {% block mi_contenido %}
 
-<form action={% url 'editar_moto' moto.id %} method="POST">
+<form action={% url 'editar_moto' moto.id %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
 <div class="grid max-w-screen-l px-4 pt-20  mx-auto lg:gap-8 ">
     <div class="mr-auto place-self-center lg:col-span-7">
