@@ -1,0 +1,18 @@
+{% extends 'base/index.html' %}
+
+{% block title_pagina %}
+<title>Crear Publicación</title>
+{% endblock title_pagina %}
+
+
+{% block mi_contenido %}
+
+<form action={% url 'crear_publicacion' %} method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+    <table>
+        {{form.media}}
+        {{form}}
+    </table>
+    <button>Publicar</button>
+</form>
+{% endblock mi_contenido %}

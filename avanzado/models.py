@@ -22,3 +22,7 @@ class ExtensionMoto(models.Model):
     avatar = models.ImageField(upload_to='avatares',null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
+class Publicacion(models.Model):
+    titulo = models.CharField(max_length=20)
+    linea_texto = models.CharField(max_length=300)
+    

@@ -12,10 +12,5 @@ class BusquedaUsuario(forms.Form):
 class FormularioChat(forms.Form):
     mensaje = forms.CharField(max_length=150)
     
-# Lo de acá abajo va a ser lo que vaya como template para crear publicaciones, se puede hacer con login required o mixin
- 
-class FormularioPublicacion(forms.Form):
-    ...
-    
 
     

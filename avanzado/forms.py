@@ -1,8 +1,5 @@
 from django import forms
 
-
-
-
 class Moto(forms.Form):
     imagen = forms.ImageField(required=False)
     modelo = forms.CharField(max_length=20)
@@ -15,3 +12,8 @@ class Moto(forms.Form):
     
 class BusquedaMoto(forms.Form):
     marca = forms.CharField(max_length=20, required=False)
+    
+class Publicacion(forms.Form):
+    titulo = forms.CharField(max_length=20)
+    linea_texto = forms.CharField(max_length=300)
+    

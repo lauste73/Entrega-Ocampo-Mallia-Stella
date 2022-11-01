@@ -2,9 +2,9 @@ from asyncio.windows_events import NULL
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from avanzado.models import Moto
-from avanzado.forms import BusquedaMoto
-
+from avanzado.models import Moto, Publicacion
+from avanzado.forms import BusquedaMoto, Publicacion
+from django.contrib.auth.decorators import login_required
 
 class VerMotos(ListView):
     model = Moto
@@ -47,3 +47,9 @@ class EliminarMoto(LoginRequiredMixin, DeleteView):
 class DescMoto(LoginRequiredMixin,DetailView):
     model = Moto
     template_name = 'avanzado/descripcion_moto.html'
+
+class CrearPublicacion(LoginRequiredMixin,CreateView):
+    model = Publicacion
+    success_url = 'home/'
+    template_name = 'avanzado/crear_publicacion.html'
+    fields = ['titulo', 'linea_texto']
