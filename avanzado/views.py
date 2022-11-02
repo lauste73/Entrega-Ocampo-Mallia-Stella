@@ -3,8 +3,9 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from avanzado.models import Moto, Publicacion
-from avanzado.forms import BusquedaMoto, Publicacion
+from avanzado.forms import BusquedaMoto, FormularioPublicacion, BusquedaPublicacion
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 
 class VerMotos(ListView):
     model = Moto
@@ -47,9 +48,40 @@ class EliminarMoto(LoginRequiredMixin, DeleteView):
 class DescMoto(LoginRequiredMixin,DetailView):
     model = Moto
     template_name = 'avanzado/descripcion_moto.html'
+    
+@login_required
 
-class CrearPublicacion(LoginRequiredMixin,CreateView):
-    model = Publicacion
-    success_url = 'home/'
-    template_name = 'avanzado/crear_publicacion.html'
-    fields = ['titulo', 'linea_texto']
+def crear_publicacion(request):
+    if request.method == 'POST':
+        
+        formulario = FormularioPublicacion(request.POST)
+        
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+        
+            titulo = data['titulo']
+            linea_texto = data['linea_texto']
+            
+            publicacion = Publicacion(titulo=titulo, linea_texto=linea_texto)
+            publicacion.save()
+            
+            return redirect('ver_publicaciones')
+        
+    formulario = FormularioPublicacion()
+    
+    return render(request, 'avanzado/crear_publicacion.html', {'formulario': formulario})
+
+@login_required
+
+def ver_publicaciones(request):
+    
+    titulo = request.GET.get('titulo', None)
+    
+    if titulo:
+        publicaciones = Publicacion.objects.filter(titulo__icontains=titulo)
+    else:
+        publicaciones = Publicacion.objects.all()
+    
+    formulario = BusquedaPublicacion()
+    
+    return render(request, 'avanzado/ver_publicaciones.html', {'publicaciones': publicaciones, 'formulario': formulario})

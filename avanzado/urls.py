@@ -12,7 +12,10 @@ urlpatterns = [
     
     #POSTEOS(SECCION DE LAS PUBLICACIONES)
     
-    path('crear-publicacion/',views.CrearPublicacion.as_view(), name='crear_publicacion')
+    path('crear-publicacion/',views.crear_publicacion, name='crear_publicacion'),
+    path('ver-publicacion/',views.ver_publicaciones, name='ver_publicaciones'),
+    
+
 
   
 ]

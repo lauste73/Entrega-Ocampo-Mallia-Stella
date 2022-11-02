@@ -13,7 +13,10 @@ class Moto(forms.Form):
 class BusquedaMoto(forms.Form):
     marca = forms.CharField(max_length=20, required=False)
     
-class Publicacion(forms.Form):
+class FormularioPublicacion(forms.Form):
     titulo = forms.CharField(max_length=20)
     linea_texto = forms.CharField(max_length=300)
+    
+class BusquedaPublicacion(forms.Form):
+    nombre = forms.CharField(max_length=30, required = False)
     
