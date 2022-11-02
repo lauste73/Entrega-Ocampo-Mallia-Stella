@@ -49,27 +49,11 @@ class DescMoto(LoginRequiredMixin,DetailView):
     model = Moto
     template_name = 'avanzado/descripcion_moto.html'
     
-@login_required
-
-def crear_publicacion(request):
-    if request.method == 'POST':
-        
-        formulario = FormularioPublicacion(request.POST)
-        
-        if formulario.is_valid():
-            data = formulario.cleaned_data
-        
-            titulo = data['titulo']
-            linea_texto = data['linea_texto']
-            
-            publicacion = Publicacion(titulo=titulo, linea_texto=linea_texto)
-            publicacion.save()
-            
-            return redirect('ver_publicaciones')
-        
-    formulario = FormularioPublicacion()
-    
-    return render(request, 'avanzado/crear_publicacion.html', {'formulario': formulario})
+class CrearPublicacion(LoginRequiredMixin, CreateView):
+    model = Publicacion
+    success_url = '/avanzado/ver-publicaciones/'
+    template_name = 'avanzado/crear_publicacion.html'
+    fields = ['titulo', 'linea_texto']
 
 @login_required
 

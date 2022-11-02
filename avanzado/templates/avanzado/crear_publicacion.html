@@ -4,7 +4,6 @@
 <title>Crear Publicación</title>
 {% endblock title_pagina %}
 
-
 {% block mi_contenido %}
     <section class="bg-white dark:bg-gray-900">
         <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
@@ -12,16 +11,13 @@
                 <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">Publicación</h1>
             </div>         
         </div>
-            <form class="formulario" action={% url 'crear_publicacion' %} method="post">
-                    {% csrf_token %}
-                    <table>
-                        <div class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                                {{formulario}}
-                            </p>
-                        </div>
-                    </table>
-                    <button>Publicar</button>
-            </form>         
+        <form action={% url 'crear_publicacion' %} method="POST">
+            {% csrf_token %}
+            <table>
+                {{form.media}}
+                {{form}}
+            </table>
+            <button>Enviar</button>
+        </form>  
     </section>
-    {% endblock mi_contenido %}
+{% endblock mi_contenido %}    

@@ -1,4 +1,5 @@
 from django import forms
+from ckeditor.fields import RichTextFormField
 
 class Moto(forms.Form):
     imagen = forms.ImageField(required=False)
@@ -15,7 +16,7 @@ class BusquedaMoto(forms.Form):
     
 class FormularioPublicacion(forms.Form):
     titulo = forms.CharField(max_length=20)
-    linea_texto = forms.CharField(max_length=300)
+    linea_texto = RichTextFormField(max_length=400)
     
 class BusquedaPublicacion(forms.Form):
     nombre = forms.CharField(max_length=30, required = False)
