@@ -19,5 +19,5 @@ class FormularioPublicacion(forms.Form):
     linea_texto = RichTextFormField(max_length=400)
     
 class BusquedaPublicacion(forms.Form):
-    nombre = forms.CharField(max_length=30, required = False)
+    titulo = forms.CharField(max_length=20, required = False)
     

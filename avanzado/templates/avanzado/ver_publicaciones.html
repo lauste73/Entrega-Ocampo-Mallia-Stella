@@ -27,7 +27,7 @@
     
     <p>
         <center>
-        {% if publicacion %}
+        {% if publicaciones %}
             {% for publicacion in publicaciones %}
             <li>{{publicacion.titulo}}  {{publicacion.linea_texto}}
                 Enviado por: {{request.user.username}}
