@@ -15,7 +15,5 @@ urlpatterns = [
     path('crear-publicacion/', views.CrearPublicacion.as_view(), name='crear_publicacion'),
     path('ver-publicaciones/', views.ver_publicaciones, name='ver_publicaciones'),
     
-
-
   
 ]
