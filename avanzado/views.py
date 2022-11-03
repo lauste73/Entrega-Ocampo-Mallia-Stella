@@ -17,7 +17,7 @@ def ver_publicaciones(request):
     if titulo:
         publicaciones = Publicacion.objects.filter(titulo__icontains=titulo)
     else:
-        publicaciones = Publicacion.objects.all()
+        publicaciones = Publicacion.objects.none()
     
     formulario = BusquedaPublicacion()
     
@@ -27,13 +27,13 @@ class CrearPublicacion(LoginRequiredMixin, CreateView):
     model = Publicacion
     success_url = '/avanzado/ver-publicaciones/'
     template_name = 'avanzado/crear_publicacion.html'
-    fields = ['titulo', 'subtitulo','linea_texto',]
+    fields = ['titulo', 'subtitulo','linea_texto', 'fecha_creacion',]
 
 class EditarPublicaion(LoginRequiredMixin, UpdateView):
     model = Publicacion
     success_url = '/avanzado/ver-publicaciones/'
     template_name = 'avanzado/editar_publicacion.html'
-    fields = ['titulo', 'subtitulo', 'linea_texto']
+    fields = ['titulo', 'subtitulo', 'linea_texto', 'fecha_creacion']
     
 
 class EliminarPublicacion(LoginRequiredMixin, DeleteView):
