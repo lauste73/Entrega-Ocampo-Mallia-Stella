@@ -1,6 +1,6 @@
 from django import forms
 from ckeditor.fields import RichTextFormField
-
+from ckeditor_uploader.fields import RichTextUploadingField
     
 class FormularioPublicacion(forms.Form):
     titulo = forms.CharField(max_length=20)
