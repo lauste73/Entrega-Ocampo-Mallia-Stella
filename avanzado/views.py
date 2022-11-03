@@ -17,7 +17,7 @@ def ver_publicaciones(request):
     if titulo:
         publicaciones = Publicacion.objects.filter(titulo__icontains=titulo)
     else:
-        publicaciones = Publicacion.objects.none()
+        publicaciones = Publicacion.objects.all()
     
     formulario = BusquedaPublicacion()
     
