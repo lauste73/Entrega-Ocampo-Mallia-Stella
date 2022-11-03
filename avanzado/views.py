@@ -27,13 +27,13 @@ class CrearPublicacion(LoginRequiredMixin, CreateView):
     model = Publicacion
     success_url = '/avanzado/ver-publicaciones/'
     template_name = 'avanzado/crear_publicacion.html'
-    fields = ['titulo', 'subtitulo','linea_texto', 'fecha_creacion',]
+    fields = ['titulo', 'subtitulo','linea_texto','imagen', 'fecha_creacion',]
 
 class EditarPublicaion(LoginRequiredMixin, UpdateView):
     model = Publicacion
     success_url = '/avanzado/ver-publicaciones/'
     template_name = 'avanzado/editar_publicacion.html'
-    fields = ['titulo', 'subtitulo', 'linea_texto', 'fecha_creacion']
+    fields = ['titulo', 'subtitulo', 'linea_texto','imagen', 'fecha_creacion']
     
 
 class EliminarPublicacion(LoginRequiredMixin, DeleteView):

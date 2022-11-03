@@ -7,13 +7,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from accounts.models import ExtensionUsuario
 
+
 def mi_login(request):
     if request.method == 'POST':
         formulario = AuthenticationForm(request, data=request.POST)
         if formulario.is_valid():
             usuario = formulario.get_user()
             login(request, usuario)
-            extensionUsuario, es_nuevo = ExtensionUsuario.objects.get_or_create(user=request.user)
             return redirect('home')
     else:
         formulario = AuthenticationForm()
@@ -35,6 +35,9 @@ def registrar(request):
 
 @login_required
 def perfil(request):
+    
+    extensionUsuario, es_nuevo = ExtensionUsuario.objects.get_or_create(user=request.user)
+    
     return render(request, 'accounts/perfil.html', {})
 
 @login_required
