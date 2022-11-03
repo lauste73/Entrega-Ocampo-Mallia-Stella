@@ -1,7 +1,7 @@
 from django.template import Template, Context
 from django.shortcuts import render, redirect
-from home1.models import Usuario
-from home1.forms import FormularioUsuario, BusquedaUsuario
+from home1.models import Usuario, Chat
+from home1.forms import FormularioUsuario, BusquedaUsuario, FormularioChat
 from datetime import datetime
 
 def crear_usuario(request):
@@ -41,6 +41,7 @@ def ver_usuarios(request):
     return render(request, 'home/ver_usuarios.html', {'usuarios': usuarios, 'formulario': formulario})
 
 def chat(request):
+    
     return render(request, 'home/chat.html', {})
 
 
