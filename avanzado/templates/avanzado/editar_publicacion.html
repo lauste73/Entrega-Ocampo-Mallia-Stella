@@ -1,22 +1,22 @@
 {% extends 'base/index.html' %}
 
 {% block title_pagina %}
-<title>Editar Moto</title>
+<title>Editar</title>
 {% endblock title_pagina %}
 
 
 {% block mi_contenido %}
 
-<form action={% url 'editar_moto' moto.id %} method="POST" enctype='multipart/form-data'>
+<form action={% url 'editar_publicacion' publicacion.id %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
 <div class="grid max-w-screen-l px-4 pt-20  mx-auto lg:gap-8 ">
     <div class="mr-auto place-self-center lg:col-span-7">
-        <h1 class="max-w-2xl  font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">Moto con chasis:  {{moto.chasis}}</h1>
+        <h1 class="max-w-2xl  font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">Publicacion:</h1>
 </div>
 
 <div class="grid max-w-screen-xl px-4 pt-3">
     <div class="mr-auto place-self-center lg:col-span-7">
-        <a class="max-w-2xl mb-4 text-2xl " href={% url 'ver_motos' %}>Regresar a la Tienda</a>
+        <a class="max-w-2xl mb-4 text-2xl " href={% url 'ver_publicaciones' %}>Regresar</a>
     </div>         
 </div>
 

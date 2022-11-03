@@ -1,0 +1,32 @@
+{% extends 'base/index.html' %}
+
+{% block title_pagina %}
+<title>Eliminar</title>
+{% endblock title_pagina %}
+
+
+{% block mi_contenido %}
+
+<div class="grid max-w-screen-xl  lg:grid-cols-12 lg:pt-28">
+    <div class="mr-auto lg:col-span-7">
+        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">¿Esta seguro?:</h1>
+    </div>         
+</div>
+
+<form action={% url 'eliminar_publicacion' publicacion.id %} method="POST">
+    {% csrf_token %}
+    <p>Desea confirmar el borrado de la publicacion:</p>
+
+    <a href={% url 'descripcion_publicacion' publicacion.id %}>Titulo{{publicacion.titulo}} - Subtitulo: {{publicacion.subtitulo}}</a>
+    <div class="grid max-w-screen-xl px-4 pt-3">
+        <div class="mr-auto place-self-center lg:col-span-7">
+            <button>Confirmar</button>
+        </div>         
+    </div>
+    <div class="grid max-w-screen-xl px-4 pt-3">
+        <div class="mr-auto place-self-center lg:col-span-7">
+            <a class="max-w-2xl mb-4 text-2xl " href={% url 'ver_publicaciones' %}>Regresar</a>
+        </div>         
+    </div>
+</form>
+{% endblock mi_contenido %}
