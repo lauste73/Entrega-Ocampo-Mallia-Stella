@@ -18,7 +18,7 @@
     </div>         
 </div>
 
-<p>
+<center>
     <p>Titulo: {{publicacion.titulo}}</p>
     <p>Subtitulo:  {{publicacion.subtitulo}}</p>
     <p>    {{publicacion.linea_texto | safe }}</p>
@@ -30,6 +30,8 @@
         {% endif %}
     </p>
     <p>Autor:  {{request.user.username}}</p>
+    <br>
+    <br>
 
-</p>
+</center>
 {% endblock mi_contenido %}
