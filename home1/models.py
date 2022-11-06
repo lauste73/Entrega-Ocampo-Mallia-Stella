@@ -11,9 +11,9 @@ class Usuario(models.Model):
         return f'{self.nombre} {self.apellido} {self.edad} {self.fecha_creacion}'
     
 class Chat(models.Model):
-    autor=models.CharField(max_length= 20) 
+    autor=models.CharField(max_length=20) 
     mensaje=models.CharField(max_length=150)
     
     def _str_(self):
-        return f'{self.usuario} {self.mensaje}'
+        return f'{self.autor} {self.mensaje}'
     

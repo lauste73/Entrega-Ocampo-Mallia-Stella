@@ -5,35 +5,50 @@ from avanzado.models import Publicacion
 from avanzado.forms import FormularioPublicacion, BusquedaPublicacion
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from datetime import datetime
 
+class ListaPublicacion(ListView):
+    model = Publicacion
+    template_name = 'avanzado/ver_publicaciones.html'
+    
+    def get_queryset(self):
+        titulo = self.request.GET.get('titulo', '')
+        if titulo:
+            object_list = self.model.objects.filter(titulo__icontains=titulo)
+        else:
+            object_list = self.model.objects.all()
+        return object_list
 
-@login_required
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["formulario"] = BusquedaPublicacion()
+        return context
+    
+# @login_required
 
-def ver_publicaciones(request):
+# def ver_publicaciones(request):
     
-    titulo = request.GET.get('titulo', None)
+#     titulo = request.GET.get('titulo', None)
     
-    if titulo:
-        publicaciones = Publicacion.objects.filter(titulo__icontains=titulo)
-    else:
-        publicaciones = Publicacion.objects.none()
+#     if titulo:
+#         publicaciones = Publicacion.objects.filter(titulo__icontains=titulo)
+#     else:
+#         publicaciones = Publicacion.objects.none()
     
-    formulario = BusquedaPublicacion()
+#     formulario = BusquedaPublicacion()
     
-    return render(request, 'avanzado/ver_publicaciones.html', {'publicaciones': publicaciones, 'formulario': formulario})
+#     return render(request, 'avanzado/ver_publicaciones.html', {'publicaciones': publicaciones, 'formulario': formulario})
 
 class CrearPublicacion(LoginRequiredMixin, CreateView):
     model = Publicacion
     success_url = '/avanzado/ver-publicaciones/'
     template_name = 'avanzado/crear_publicacion.html'
-    fields = ['titulo', 'subtitulo','linea_texto','imagen', 'fecha_creacion',]
+    fields = ['titulo', 'subtitulo','linea_texto', 'imagen','fecha_creacion',]
 
 class EditarPublicaion(LoginRequiredMixin, UpdateView):
     model = Publicacion
     success_url = '/avanzado/ver-publicaciones/'
     template_name = 'avanzado/editar_publicacion.html'
-    fields = ['titulo', 'subtitulo', 'linea_texto','imagen', 'fecha_creacion']
+    fields = ['titulo', 'subtitulo', 'linea_texto', 'imagen','fecha_creacion']
     
 
 class EliminarPublicacion(LoginRequiredMixin, DeleteView):
@@ -45,4 +60,8 @@ class EliminarPublicacion(LoginRequiredMixin, DeleteView):
 class DescPublicacion(LoginRequiredMixin,DetailView):
     model = Publicacion
     template_name = 'avanzado/descripcion_publicacion.html'
+
+
+
+
 

@@ -19,10 +19,17 @@
 </div>
 
 <p>
-    <li>Titulo: {{publicacion.titulo}}</li>
-    <li>Subtitulo:  {{publicacion.subtitulo}}</li>
-    <li>    {{publicacion.linea_texto | safe }}</li>
-    <li>Autor:  {{request.user.username}}</li>
+    <p>Titulo: {{publicacion.titulo}}</p>
+    <p>Subtitulo:  {{publicacion.subtitulo}}</p>
+    <p>    {{publicacion.linea_texto | safe }}</p>
+    <p>
+        {% if publicacion.imagen %}
+        <img src={{publicacion.imagen.url}} alt="" width="400px">
+        {% else %}
+        Imagen no cargada
+        {% endif %}
+    </p>
+    <p>Autor:  {{request.user.username}}</p>
 
 </p>
 {% endblock mi_contenido %}

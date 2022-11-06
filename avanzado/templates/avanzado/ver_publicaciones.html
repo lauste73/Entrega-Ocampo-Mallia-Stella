@@ -24,14 +24,15 @@
     </center>
     <p>
         <center>
-        {% if publicaciones %}
-            {% for publicacion in publicaciones %}
+        {% if object_list %}
+            {% for publicacion in object_list %}
             <li>
-                <a href={% url 'descripcion_publicacion' publicacion.id %}>{{publicacion.titulo}} - Autor:{{request.user.username}}</a>
+                <a href={% url 'descripcion_publicacion' publicacion.id %}>Titulo:{{publicacion.titulo}} - Autor:{{request.user.username}}</a>
                 <p></p>
                 <a href={% url 'editar_publicacion' publicacion.id %}>Editar  -   </a>
                 <a href={% url 'eliminar_publicacion' publicacion.id %}>Eliminar</a>
             </li>
+            <br>
             {% endfor %}
         {% else %}
             <p>
