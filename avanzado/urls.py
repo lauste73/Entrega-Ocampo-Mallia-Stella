@@ -7,4 +7,5 @@ urlpatterns = [
     path('publicacion/descripcion/<int:pk>', views.DescPublicacion.as_view(), name='descripcion_publicacion'),
     path('publicacion/eliminar/<int:pk>', views.EliminarPublicacion.as_view(), name='eliminar_publicacion'),
     path('publicacion/editar/<int:pk>', views.EditarPublicaion.as_view(), name='editar_publicacion'),
+    
 ]

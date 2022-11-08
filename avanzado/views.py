@@ -46,6 +46,9 @@ class DescPublicacion(LoginRequiredMixin,DetailView):
     template_name = 'avanzado/descripcion_publicacion.html'
 
 
+ 
+
+
 
 
 
