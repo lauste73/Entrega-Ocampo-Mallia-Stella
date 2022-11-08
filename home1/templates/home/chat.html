@@ -18,6 +18,27 @@
             </div>            
         </div>
     </section>
+    <p>
+        {% for mensaje in mensajes  %}
+
+        {{request.user.username}}: {{chat.mensaje}}
+
+        {% endfor %}
+    </p>
+    
+
+    <form class="formulario" action={% url 'chat' %} method="post">
+        {% csrf_token %}
+        <table>
+            <div class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                    {{formulario}}
+                </p>
+            </div>
+        </table>
+        <button>Enviar</button>
+    </form>   
+
     <!-- End block -->
     {% endblock mi_contenido %}
 </body>

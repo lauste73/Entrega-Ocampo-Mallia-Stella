@@ -41,8 +41,23 @@ def ver_usuarios(request):
     return render(request, 'home/ver_usuarios.html', {'usuarios': usuarios, 'formulario': formulario})
 
 def chat(request):
+    if request.method == 'POST':
+        
+        formulario = FormularioChat(request.POST)
+        
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+        
+            mensaje = data['mensaje']
+            
+            chat = Chat(mensaje=mensaje)
+            chat.save()
+            
+            return redirect('chat')
+        
+    formulario = FormularioChat()
     
-    return render(request, 'home/chat.html', {})
+    return render(request, 'home/chat.html', {'formulario': formulario})
 
 
 def home(request):

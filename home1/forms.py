@@ -10,7 +10,6 @@ class BusquedaUsuario(forms.Form):
     nombre = forms.CharField(max_length=30, required = False)
     
 class FormularioChat(forms.Form):
-    autor = forms.CharField(max_length=20)
     mensaje = forms.CharField(max_length=150)
     
 
