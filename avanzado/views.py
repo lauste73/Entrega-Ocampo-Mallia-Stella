@@ -2,9 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from avanzado.models import Publicacion
-from avanzado.forms import FormularioPublicacion, BusquedaPublicacion
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from avanzado.forms import BusquedaPublicacion
 
 class ListaPublicacion(ListView):
     model = Publicacion
@@ -23,20 +21,6 @@ class ListaPublicacion(ListView):
         context["formulario"] = BusquedaPublicacion()
         return context
     
-# @login_required
-
-# def ver_publicaciones(request):
-    
-#     titulo = request.GET.get('titulo', None)
-    
-#     if titulo:
-#         publicaciones = Publicacion.objects.filter(titulo__icontains=titulo)
-#     else:
-#         publicaciones = Publicacion.objects.none()
-    
-#     formulario = BusquedaPublicacion()
-    
-#     return render(request, 'avanzado/ver_publicaciones.html', {'publicaciones': publicaciones, 'formulario': formulario})
 
 class CrearPublicacion(LoginRequiredMixin, CreateView):
     model = Publicacion
